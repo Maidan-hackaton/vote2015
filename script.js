@@ -6,10 +6,10 @@ $(function() {
   var getCouncilId = function(region, name) {
     return name + region;
   }
-  var candidateF = fetch("/data/mayor_candidates.json").then(function(response) {
+  var candidateF = fetch("data/mayor_candidates.json").then(function(response) {
     return response.json();
   });
-  fetch("/data/citycounsils.json").then(function(response) {
+  fetch("data/citycounsils.json").then(function(response) {
     return response.json();
   }).then(function(councils) {
   	vote2015.cityCouncils = {};
