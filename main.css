@@ -14,22 +14,22 @@ html {
 
 @font-face {
   font-family: 'Merriweather';
-  src: url("/fonts/merriweather-bold-webfont.woff") format("woff");
+  src: url("fonts/merriweather-bold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal; }
 @font-face {
   font-family: 'Merriweather';
-  src: url("/fonts/merriweather-regular-webfont.woff") format("woff");
+  src: url("fonts/merriweather-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url("/fonts/b20sans.woff") format("woff");
+  src: url("fonts/b20sans.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url("/fonts/b20sans.woff") format("woff");
+  src: url("fonts/b20sans.woff") format("woff");
   font-weight: 600;
   font-style: normal; }
 body {
@@ -155,7 +155,7 @@ h6 {
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  background: #ffffff url("/images/arrow-down.svg") no-repeat;
+  background: #ffffff url("images/arrow-down.svg") no-repeat;
   background-position: 98% center;
   background-size: 1em 1em;
   border: none;
@@ -345,7 +345,7 @@ figure {
     margin: 0 1em 0.5em 0; }
 
 .hero{
-  background-image: linear-gradient(60deg, rgba(0, 36, 61, 0.7) -10%, rgba(0, 144, 239, 0.8) 100%), url("/images/NewHero2.jpg");
+  background-image: linear-gradient(60deg, rgba(0, 36, 61, 0.7) -10%, rgba(0, 144, 239, 0.8) 100%), url("images/NewHero2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;
