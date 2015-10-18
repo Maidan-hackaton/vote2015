@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Проголосуй на місцевих виборах 25 жовтня" />
+    <meta property="og:site_name" content="Місцеві вибори | /vote2015"/>
+    <meta property="og:url" content="http://e-gov.com.ua/vote2015/" />
+    <meta property="og:description" content="Переглянь список кандидатів перед приходом на дільницю" />
+    <meta property="og:image" content="http://e-gov.com.ua/vote2015/images/open-graph.jpg" />
+
+
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.0/fetch.js"></script>
@@ -25,9 +34,13 @@
               Переглянь список кандидатів перед приходом на дільницю.
             </p>
             <form class="region-select">
+              <label for="region1">Область</label>
+              <select name="region1" id="region1">
+                <option value="" disabled selected>Область</option>
+              </select>
               <label for="region">Обери свою міську раду</label>
               <select name="region" id="region">
-                <option value="" disabled selected>Обери свою міську раду</option>
+                <option value="" disabled selected>Міська рада</option>
               </select>
             </form>
           </div>

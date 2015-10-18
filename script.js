@@ -13,16 +13,45 @@ $(function() {
     return response.json();
   }).then(function(councils) {
   	vote2015.cityCouncils = {};
+    vote2015.regions = [];
+    vote2015.cityCouncilsByRegion = {};
     councils.forEach(function(council) {
       var name = getFullCouncilName(council.region, council.name);
       var id = getCouncilId(council.region, council.name);
-      $("#region").append("<option value='" + id + "'>" + name + "</option>");
       vote2015.cityCouncils[id] = council;
+      vote2015.regions.push(council.region);
+      if (!vote2015.cityCouncilsByRegion.hasOwnProperty(council.region)) {
+        vote2015.cityCouncilsByRegion[council.region] = [];
+      }
+      vote2015.cityCouncilsByRegion[council.region].push(council);
     });
+    vote2015.regions = $.unique(vote2015.regions);
+    vote2015.regions = vote2015.regions.sort(function(a, b) {
+      return a.localeCompare(b);
+    });
+    vote2015.regions.forEach(function(region) {
+      $("#region1").append("<option value='" + region + "'>" + region + "</option>");
+    });
+    Object.keys(vote2015.cityCouncilsByRegion).forEach(function(regionKey) {
+	    vote2015.cityCouncilsByRegion[regionKey] = vote2015.cityCouncilsByRegion[regionKey].sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+	    });
+    })
+
   }).catch(function(error) {
     console.log(error);
   });
-  
+  $("#region1").change(function() {
+    var selectedRegion = $("#region1").val();
+    $("#region").empty();
+    $("#region").append("<option value='' disabled selected>Міська рада</option>");
+    var councils = vote2015.cityCouncilsByRegion[selectedRegion];
+    councils.forEach(function(council) {
+      var id = getCouncilId(council.region, council.name);
+      var name = council.name;
+      $("#region").append("<option value='" + id + "'>" + name + "</option>");
+    });
+  });
   $("#region").change(function() {
     $("#mayorCandidates").empty();
     var selectedCouncilId = $("#region").val();
