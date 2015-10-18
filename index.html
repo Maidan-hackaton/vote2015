@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <title>Голосуй</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.0/fetch.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    
+  </head>
+  <body>
+    <div id="wrapper">
+      <section class="hero">
+        <div class="content">
+          <h1 class="hero-header">
+            <span class="header-top">Проголосуй </span>
+            <span class="who">заради себе.</span>
+          </h1>
+          <div class="description">
+            <p>
+              Переглянь список кандидатів перед приходом на дільницю.
+            </p>
+            <form class="region-select">
+              <label for="region">Обери свою міську раду</label>
+              <select name="region" id="region">
+                <option value="" disabled selected>Обери свою міську раду</option>
+              </select>
+            </form>
+          </div>
+        <div>
+      </section>
+      <section class="representation">
+        <div class="content-container">
+          <h1>
+            <span class="stat"><50%</span>
+            виборців проголосувало у 2010.<sup><a href="http://vkurse.ua/ua/politics/menshe-poloviny-izbirateley.html" target="_blank">1</a></sup>
+          </h1>
+          <p>
+            Це найменьша явка за всю історію України. Через це, лише меншість українців вирішувола долю країни. Зроби так, щоб твій голос був почутий.
+            Приходь через тиждень на виборчу дільницю.
+          </p>
+          <p>
+            Але голосуй відповідально! Переглянь список кандидатів перед приходом на вибори! Скільки твому кандидату років? Чи підпадає від під люстрацію? Чи є в нього сторінка на Facebook? Чи роздавав він "гречку"? Чи агітує він у відповідності до своїх повноважень?
+          </p>
+        </div>
+      </section>
+
+    </div>
+    
+    <div class="modal candidates-modal scrollable">
+
+        <header>
+          <h2>
+          <span class="council-name"></span><br/>
+            Кандидати на посаду голови
+          </h2>
+        </header>
+          <ul id="mayorCandidates">
+          </ul>
+
+      </div>
+      
+      <div class="overlay"></div>
+      <div class="close">
+        x
+      </div>
+      
+<section class="footer">
+        <div class="container">
+          <div class="row">
+            <ul class="website-links">
+              <li>
+                <a href="http://www.cvk.gov.ua/pls/vm2015/wm001">Офіційний сайт Центральної виборчої комісії</a>
+              </li>
+
+              <li>
+                <a href="http://www.gsa.gov/portal/content/116609" target="_blank">Для розробників</a>
+              </li>
+            </ul>
+            <div class="footer-col left">
+              <figure class="pif-logo logo">
+                <a href="https://presidentialinnovationfellows.gov" target="blank">
+                  <img alt="Герб Центральної виборчої комісії" src="http://www.cvk.gov.ua/img2015/gerb_cvk.gif" id="pif-ogo">
+                </a>
+              </figure>
+            </div>
+            <div class="footer-col right">
+              <div class="disclaimer">
+                <p>
+                  Цей сайт розроблено волонтерами. Офіційна інформація про вибори знаходиться лише на <a href="http://www.cvk.gov.ua/pls/vm2015/wm001">офіційному сайті Центральної Виборчої Комісії</a>.<br/>
+                  Сайт створено на технічній базі <a href="https://vote.usa.gov/">офіційного сайту виборів США.</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>      
+      
+  </body>
+</html>
