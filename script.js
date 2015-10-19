@@ -61,15 +61,15 @@ $(function() {
         return selectedCouncilId == candidateCouncilId;
       }).forEach(function(candidate) {
         $("#mayorCandidates").append(
-          "<div class='checkbox'></div><li class='candidate'>" +
+          "<div class='checkbox'><i class='fa'></i></div><li class='candidate'>" +
           "<span class='name'>" + candidate.full_name + "</span>" +
           "<span class='party'>" + candidate.party + "</span>"
           + "</li>");
-        setTimeout(function() {
-          vote2015.website.bindVote();
-        }, 300);
       });
-    })
+      setTimeout(function() {
+          vote2015.website.bindVote();
+      }, 300);
+    });
   });
   
   vote2015.website.bindFunctions();
@@ -116,7 +116,7 @@ vote2015.website = {
       e.preventDefault();
       vote2015.website.vote($(this));
     }
-    $("li:before").bind("click", vote);
+    $("#mayorCandidates .checkbox").bind("click", vote);
   },
 
   bindFunctions: function() {
@@ -145,7 +145,8 @@ vote2015.website = {
   },
 
   vote: function(el) {
-    el.addClass("checked");
+    $("#mayorCandidates .checkbox i").removeClass("fa-check");
+    el.find("i").addClass("fa-check");
   },
 
   loadCandidatesModal: function(selectedCouncil) {
