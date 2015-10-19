@@ -12,7 +12,7 @@ $(function() {
   fetch("data/citycounsils.json").then(function(response) {
     return response.json();
   }).then(function(councils) {
-  	vote2015.cityCouncils = {};
+    vote2015.cityCouncils = {};
     vote2015.regions = [];
     vote2015.cityCouncilsByRegion = {};
     councils.forEach(function(council) {
@@ -33,9 +33,9 @@ $(function() {
       $("#region1").append("<option value='" + region + "'>" + region + "</option>");
     });
     Object.keys(vote2015.cityCouncilsByRegion).forEach(function(regionKey) {
-	    vote2015.cityCouncilsByRegion[regionKey] = vote2015.cityCouncilsByRegion[regionKey].sort(function(a, b) {
+      vote2015.cityCouncilsByRegion[regionKey] = vote2015.cityCouncilsByRegion[regionKey].sort(function(a, b) {
         return a.name.localeCompare(b.name);
-	    });
+      });
     })
 
   }).catch(function(error) {
@@ -61,12 +61,15 @@ $(function() {
         return selectedCouncilId == candidateCouncilId;
       }).forEach(function(candidate) {
         $("#mayorCandidates").append(
-          "<li class='candidate'>" +
+          "<div class='checkbox'><i class='fa'></i></div><li class='candidate'>" +
           "<span class='name'>" + candidate.full_name + "</span>" +
           "<span class='party'>" + candidate.party + "</span>"
-          + "</li>")
+          + "</li>");
       });
-    })
+      setTimeout(function() {
+        vote2015.website.bindVote();
+      }, 300);
+    });
   });
   
   vote2015.website.bindFunctions();
@@ -107,11 +110,18 @@ vote2015.website = {
    $(".close").bind("click", close);
 
   },
-  
+
+  bindVote: function() {
+    var vote = function(e) {
+      e.preventDefault();
+      vote2015.website.vote($(this));
+    }
+    $("#mayorCandidates .checkbox").bind("click", vote);
+  },
+
   bindFunctions: function() {
     vote2015.website.bindCouncilSelect();
     vote2015.website.bindModalClose();
-    
   },
 
   bindCouncilSelect: function() {
@@ -134,10 +144,13 @@ vote2015.website = {
     $("body").removeClass("no-scroll");
   },
 
-
+  vote: function(el) {
+    $("#mayorCandidates .checkbox i").removeClass("fa-check");
+    el.find("i").addClass("fa-check");
+  },
 
   loadCandidatesModal: function(selectedCouncil) {
-  	$(".candidates-modal .council-name").text(selectedCouncil);
+    $(".candidates-modal .council-name").text(selectedCouncil);
     $(".close").addClass("active");
     $(".overlay").addClass("active");
     $(".candidates-modal").addClass("active");
