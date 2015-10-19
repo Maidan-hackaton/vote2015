@@ -619,6 +619,7 @@ figure {
     line-height: 1.3em;
     margin-top: 0; }
   .actions p {
+  	color: #ffffff;
     line-height: 1.4em;
     font-size: 1em; }
   .actions .button {
@@ -627,11 +628,13 @@ figure {
     text-transform: uppercase; }
     .actions .button:hover {
       background-color: #ae1f22; }
-  .actions img {
-    max-height: 120px; }
+  .actions i {
+  	margin: 0.1em;
+  	color: #ffffff;
+    font-size: 4em; }
     @media screen and (min-width: 40em) {
-      .actions img {
-        max-height: 150px; } }
+      .actions i {
+        font-size: 6em; } }
   .actions .content-container:after {
     clear: both;
     content: "";
@@ -716,37 +719,37 @@ figure {
         line-height: 1.4em;
         font-size: 1.1em; } }
 
-.why-voteusa {
+.why-vote2015 {
   padding: 3em 0 4em;
   text-align: center; }
   @media screen and (min-width: 40em) {
-    .why-voteusa {
+    .why-vote2015 {
       padding: 5em 0 6em; } }
-  .why-voteusa h2 {
+  .why-vote2015 h2 {
     color: #0071bc;
     font-size: 1.3em; }
-  .why-voteusa h3 {
+  .why-vote2015 h3 {
     color: #93969d;
     font-size: 1.1em;
     line-height: 1.3em; }
-  .why-voteusa p {
+  .why-vote2015 p {
     line-height: 1.4em;
     font-size: 1em; }
-  .why-voteusa .content-container {
+  .why-vote2015 .content-container {
     margin: 0 auto;
     max-width: 700px;
     padding: 0 1em; }
-    .why-voteusa .content-container:after {
+    .why-vote2015 .content-container:after {
       clear: both;
       content: "";
       display: table; }
   @media screen and (min-width: 53.75em) {
-    .why-voteusa h2 {
+    .why-vote2015 h2 {
       font-size: 2em; }
-    .why-voteusa h3 {
+    .why-vote2015 h3 {
       font-size: 1.3em;
       line-height: 1.4em; }
-    .why-voteusa p {
+    .why-vote2015 p {
       line-height: 1.5em;
       font-size: 1.1em; }
       
