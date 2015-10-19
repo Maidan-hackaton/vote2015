@@ -9,7 +9,7 @@ $(function() {
   var candidateF = fetch("data/mayor_candidates.json").then(function(response) {
     return response.json();
   });
-  fetch("data/citycounsils.json").then(function(response) {
+  fetch("data/city_counsils.json").then(function(response) {
     return response.json();
   }).then(function(councils) {
     vote2015.cityCouncils = {};
@@ -61,15 +61,15 @@ $(function() {
         return selectedCouncilId == candidateCouncilId;
       }).forEach(function(candidate) {
         $("#mayorCandidates").append(
-          "<div class='checkbox'><i class='fa'></i></div><li class='candidate'>" +
+          "<div class='checkbox'></div><li class='candidate'>" +
           "<span class='name'>" + candidate.full_name + "</span>" +
           "<span class='party'>" + candidate.party + "</span>"
           + "</li>");
+        setTimeout(function() {
+          vote2015.website.bindVote();
+        }, 300);
       });
-      setTimeout(function() {
-        vote2015.website.bindVote();
-      }, 300);
-    });
+    })
   });
   
   vote2015.website.bindFunctions();
@@ -116,7 +116,7 @@ vote2015.website = {
       e.preventDefault();
       vote2015.website.vote($(this));
     }
-    $("#mayorCandidates .checkbox").bind("click", vote);
+    $("li:before").bind("click", vote);
   },
 
   bindFunctions: function() {
@@ -145,8 +145,7 @@ vote2015.website = {
   },
 
   vote: function(el) {
-    $("#mayorCandidates .checkbox i").removeClass("fa-check");
-    el.find("i").addClass("fa-check");
+    el.addClass("checked");
   },
 
   loadCandidatesModal: function(selectedCouncil) {
