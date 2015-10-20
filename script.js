@@ -44,7 +44,7 @@ $(function() {
   $("#region1").change(function() {
     var selectedRegion = $("#region1").val();
     $("#region").empty();
-    $("#region").append("<option value='' disabled selected>Міська рада</option>");
+    $("#region").append("<option value='' disabled selected>Міська рада/громада</option>");
     var councils = vote2015.cityCouncilsByRegion[selectedRegion];
     councils.forEach(function(council) {
       var id = getCouncilId(council.region, council.name);
@@ -115,7 +115,7 @@ vote2015.website = {
     var vote = function(e) {
       e.preventDefault();
       vote2015.website.vote($(this));
-    }
+    };
     $("#mayorCandidates .checkbox").bind("click", vote);
   },
 
